@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+    <meta charset="utf-8">
+	<script>
+	// Insert a function that displays the text message 'User is typing...' when a user clicks in the input text box. The text should appear inside the 'div' with ID: 'message'. 
+	// Insert a function that hides the text message when the user clicks out of the input text box (i.e., the element focus is lost).
+	// Answer:
+	
+	function showMessage() {
+		document.getElementById("message").innerHTML='User is typing';
+	}
+
+	function hideMessage() {
+		document.getElementById("message").innerHTML='';
+	}
+	</script>
+</head>
+
+<body>
+
+	Message: 
+	<!-- The above functions should be called by the 'input' tag below. -->
+	<input type="text" onfocus="showMessage()" onfocusout="hideMessage()"><br><br>
+	
+	<!-- You are NOT allowed to change the HTML code below -->
+	<div id="message" style="color:grey;"><div>
+	
+</body>
+
+</html>

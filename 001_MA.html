@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+    <meta charset="utf-8">
+	<script>
+	// Insert the script here
+	// You should create a function that changes the text color and writes to the browser console log the message: "Done!")
+	// Answer:
+	
+	function changeColour(){
+		document.getElementById("text").style.color = "blue";
+		console.log("Done!");
+	}
+	</script>
+
+</head>
+ 
+
+<body>
+	<!-- You will have to call the function you create from the "p" tag below -->
+	<p id="text" ondblclick="changeColour()">
+		The color of this paragraph should become blue after double clicking it. <br>
+		Afterwards, a message should be displayed in the console of your browser. <br>
+		You can do it!
+	</p>
+</body>
+</html>

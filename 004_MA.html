@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+	<script>
+		function checkCharacters(event)
+		{
+			const currentTextSize = document.getElementById("myArea").value.length;
+            const key = event.key;
+			console.log(currentTextSize);
+            console.log(key);
+
+
+			if (!(key === "0") && !(key === '1')) 
+                document.getElementById("badchar").innerHTML = "Inappropriate character";
+            else {
+                if (currentTextSize > 13) 
+                    document.getElementById("badchar").innerHTML = "Too many!";                
+            }    
+                      
+        }
+	</script>
+</head>
+
+<body>
+	<h1>A constrained text area</h1>
+
+    <!-- A constrained text area that accepts up to 12 bits (0s, 1s) -->
+	<form name="myForm" method="post">
+		<textarea id="myArea" rows="7" cols="40" ></textarea>
+	</form>
+
+	<!-- Display here a message if the user tries to enter chars other than 0s and 1s-->
+	<p style="font-size:20px;" id="badchar"></p>
+    
+    <!-- Display here a message if the user tries to enter more than 12 chars -->
+	<p style="font-size:20px;" id="badsize"></p>
+   
+    <script>
+		document.getElementById("myArea").addEventListener("keydown", checkCharacters);
+	</script>
+
+</body>
+</html>
