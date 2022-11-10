@@ -1,45 +1,46 @@
 <!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-
-	<script>
-		function checkCharacters(event)
-		{
-			const currentTextSize = document.getElementById("myArea").value.length;
-            const key = event.key;
-			console.log(currentTextSize);
-            console.log(key);
-
-
-			if (!(key === "0") && !(key === '1')) 
-                document.getElementById("badchar").innerHTML = "Inappropriate character";
-            else {
-                if (currentTextSize > 13) 
-                    document.getElementById("badchar").innerHTML = "Too many!";                
-            }    
-                      
-        }
-	</script>
-</head>
-
-<body>
-	<h1>A constrained text area</h1>
-
-    <!-- A constrained text area that accepts up to 12 bits (0s, 1s) -->
-	<form name="myForm" method="post">
-		<textarea id="myArea" rows="7" cols="40" ></textarea>
-	</form>
-
-	<!-- Display here a message if the user tries to enter chars other than 0s and 1s-->
-	<p style="font-size:20px;" id="badchar"></p>
-    
-    <!-- Display here a message if the user tries to enter more than 12 chars -->
-	<p style="font-size:20px;" id="badsize"></p>
+<HTML>
+	<head>
+	   <meta charset="utf-8">
    
-    <script>
-		document.getElementById("myArea").addEventListener("keydown", checkCharacters);
-	</script>
-
-</body>
-</html>
+	   <script>
+   
+	   // parameter is required 
+	   // MA found in Arbnor's Rama submission
+	   function checkNumCharacters(max)
+	   {	
+		   let input = document.getElementsByName('myarea')[0].value
+		   let counter = document.getElementById('counter');
+		   counter.innerHTML = max - input.length
+   
+		   if(counter.innerHTML <= 0)
+			   document.getElementById('limit').style.display = 'block'
+		   else	
+			   document.getElementById('limit').style.display = 'none'
+   
+	   }
+			   
+	   </script>
+   
+   </head>
+   
+   <body>
+   
+   <h1>Counting Down Number of Characters Entered</h1>
+   
+   <form name="myForm" method="post">
+   
+   <!-- Lecturer's Note: in the textarea tag, you will need to add the proper event(s) to call the function checkNumCharacters -->
+   <textarea name="myarea" rows="7" cols="40" maxlength="10" oninput="checkNumCharacters(10)"></textarea>
+   </form>
+   
+   <!--Lecturer's Note: in the sentence below, the number (current value is 10) must dynamically decrease as characters are typed in the textarea, and increase when characters as deleted from the textarea. -->
+   <p style="font-size:20px;"><B>Characters Left:</B> <span id="counter">10</span></p>
+   
+   <!-- Lecturer's Note: a message "Limit is reached" (with red color) must appear at this place ONLY when the limit of 10 characters is reached. At any other point, the "Limit is reached" message is not displayed.-->
+   
+   <!-- enter the code here for the "Limit is reached message" -->
+   <p id="limit" style="color: red; display: none;">Limit is reached</p>
+   
+   </body>
+   </html>
