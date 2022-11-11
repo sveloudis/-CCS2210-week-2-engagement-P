@@ -8,10 +8,7 @@ function checkform() {
     let year = document.getElementsByName("year")[0].value;
     let fullName = document.getElementsByName("fullname")[0].value;
     const nameArray = fullName.split(" ");
-    console.log(year);
-    console.log(fullName);
-    console.log(nameArray);
-    
+     
     if (year == "") {
         alert("Fill in the year field!");
         return false;
